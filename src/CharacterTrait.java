@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class CharacterTrait {
+    private String name;  // Name of the character trait
+    private HashMap <Integer, String> description; // 5 descriptions
+    private ArrayList<TraitRange> traitRanges; // Trait value ranges for 5 descriptions
+
+    public CharacterTrait(String name, HashMap<Integer, String> description, ArrayList<TraitRange> traitRanges) {
+        this.name = name;
+        this.description = description;
+        this.traitRanges = traitRanges;
+    }
+
+    public String getDescription(Integer traitValue) {
+        TraitRange range;
+
+        for (TraitRange traitRange : traitRanges) {
+            range = traitRange;
+            if (range.getMin() < traitValue && range.getMax() >= traitValue)
+                return description.get(range.getValue());
+        }
+        return ""; // Error: Not found!
+    }
+}
