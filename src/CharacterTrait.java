@@ -15,8 +15,8 @@ public class CharacterTrait {
     public String getDescription(Integer traitValue) {
         TraitRange range;
 
-        for (TraitRange traitRange : traitRanges) {
-            range = traitRange;
+        for (int i=0; i<traitRanges.size(); i++) {
+            range = traitRanges.get(i);
             if (range.getMin() < traitValue && range.getMax() >= traitValue)
                 return description.get(range.getValue());
         }
