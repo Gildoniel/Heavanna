@@ -1,18 +1,18 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public  final class TraitList {
+public final class TraitList {
     private final static ArrayList<TraitRange> traitRanges = new ArrayList<TraitRange>();
     private final static HashMap <String, CharacterTrait> traitList = new HashMap<String, CharacterTrait>();;
-    private static String[] traitName;
+    private final static String[] traitName = {"ruecksichtslos","betruegerisch","egoistisch","faul","impulsiv","aggressiv","intelligent","humor","charismatisch","mutig","einfuehlsam","kraeftig"};
 
-    public TraitList(String[] traitName){
-        this.traitName = traitName;
+
+    public TraitList(){
         traitRanges.add(new TraitRange(0, 19, 1));
-        traitRanges.add(new TraitRange(20, 39, 2));
-        traitRanges.add(new TraitRange(40, 59, 3));
-        traitRanges.add(new TraitRange(60, 79, 4));
-        traitRanges.add(new TraitRange(80, 100, 5));
+        traitRanges.add(new TraitRange(19, 39, 2));
+        traitRanges.add(new TraitRange(39, 59, 3));
+        traitRanges.add(new TraitRange(59, 79, 4));
+        traitRanges.add(new TraitRange(79, 100, 5));
         for (int i = 0; i< traitName.length;i++){
             HashMap<Integer, String> traitDesc = new HashMap<Integer, String>();
             traitList.put(traitName[i], new CharacterTrait(traitName[i], traitDesc, traitRanges));
@@ -32,5 +32,4 @@ public  final class TraitList {
     public static String getTraitName(int traitname){
         return traitName[traitname];
     }
-
 }
